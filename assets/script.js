@@ -1,9 +1,5 @@
-
-
-var searchInput = $("#seachInput");
+var searchInput = $("#searchInput");
 var searchBtn = $("#searchBtn");
-
-
 
 
 function findCity(city){
@@ -14,13 +10,27 @@ function findCity(city){
     })
     .then(function (data){
       console.log(data);
+
+      var latitude = data[0].lat
+      var longitude = data[0].lon
+      console.log(latitude);
+      console.log(longitude);
+
+      var weather = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=644a309709552dabb2b7758d92fb6096`
+      fetch(weather)
+        .then(function (unzip){
+          return unzip.json();
+        })
+        .then(function (weatherData){
+          console.log(weatherData)
+        })
     })
 };
 
 $(document).ready(function () {
   $("#searchBtn").click(function () {
-    $("#seachInput").empty();
     findCity (searchInput.val());
+    $("#searchInput").empty();
   })
 });
 
