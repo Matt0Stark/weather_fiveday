@@ -1,0 +1,16 @@
+body{
+    background-color: grey;
+}
+
+header{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#searchContain{
+    position: absolute; 
+    left: 10px;
+}
