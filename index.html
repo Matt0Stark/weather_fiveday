@@ -18,18 +18,34 @@
 
     </header>
 
-    <aside class="search-container" id="searchContain">
-        <!-- bootstrap search box -->
-        <div class="input-group">
-            <div class="form-outline">
-                <h3>Search for a city:</h3>
-                <input type="search" class="form-control" id="searchInput" placeholder="Enter city name" />
-            </div>
-            <button type="sumbit" class="btn btn-primary" id="searchBtn">
-                <i class="fas fa-search"></i>
-            </button>
+    <main>
+
+        <div class="col-12 col-md-9">
+            <div id="fiveDayForcast" class="container"></div>
+
         </div>
-    </aside>
+
+        <aside class="col-12 col-md-3" id="searchContain">
+            <!-- bootstrap search box -->
+            <div class="input-group">
+                <div class="form-outline">
+                    <h3>Search for a city:</h3>
+                    <input type="search" class="form-control" id="searchInput" placeholder="Enter city name" />
+              
+                    <button type="sumbit" class="btn btn-primary" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="col-12 col-md-9">
+            <div id="fiveDayForcast" class="row"></div>
+
+        </div>
+    
+
+    </main>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

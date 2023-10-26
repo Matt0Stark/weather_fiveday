@@ -1,9 +1,10 @@
 var searchInput = $("#searchInput");
 var searchBtn = $("#searchBtn");
+var fiveDayForcast = $("#fiveDayForcast");
 
 
 function findCity(city){
-  var geocode = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=644a309709552dabb2b7758d92fb6096`;
+  var geocode = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&units=imperial&appid=644a309709552dabb2b7758d92fb6096`;
   fetch(geocode)
     .then(function (unzip){
       return unzip.json();
@@ -16,13 +17,41 @@ function findCity(city){
       console.log(latitude);
       console.log(longitude);
 
-      var weather = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=644a309709552dabb2b7758d92fb6096`
+      var weather = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&appid=644a309709552dabb2b7758d92fb6096`
       fetch(weather)
         .then(function (unzip){
           return unzip.json();
         })
         .then(function (weatherData){
           console.log(weatherData)
+
+          var city = weatherData.city.name
+          console.log(city)
+          
+          var daysData = weatherData.list
+          console.log(daysData)
+
+          for (i = 5; i < 40; i+=8){
+            var dayFeel = daysData[i].main.feels_like;
+            console.log(dayFeel);
+            var dayTemp = daysData[i].main.temp;
+            console.log(dayTemp);
+            var dayWeather = daysData[i].weather[0].description
+            console.log(dayWeather)
+            
+            const today = $(`
+              <div class="col">
+                  <p>${dayTemp}</p>
+                  <p>${dayFeel}</p>
+                  <p>${dayWeather}</p>
+              </div>
+            `)
+
+            fiveDayForcast.append(today);
+
+
+
+          }        
         })
     })
 };
@@ -36,48 +65,16 @@ $(document).ready(function () {
 
 
 
+// we have weatherData! now what?
 
 
-// /*
-//   There are a bunch of ways of doing multiple asynchronous requests. Here are two of them. None is better than the other. Choose whichever you feel most comfortable with.
-
-//   #1: Nested anonymous functions.
-//   Example:
-// */
-
-// fetch("some-url-here")
-// .then( function(response){
-//   return response.json()
-// })
-// .then( function(data){
-//   // here you can take the data you receive and send any part of it to the next then() block.
-//   const coolData = data.stuff
-//   return coolData
-// })
-// .then( function(coolDataFromAbove){
-//   // use the coolDataFromAbove for the next fetch call
-//   fetch("url-from-cooldata")
-//   .then( function(response){
-//     return response.json()
-//   })
-//   .then( function(finalData){
-//     // Here is your final data!!
-//   })
-// })
 
 
-// /*
-//   Example 2: Using async/await
-// */
 
-// async function getAllTheData(){
-//   const resp1 = await fetch("url-1");
-//   const data1 = await resp1.json()
 
-//   // data1 gives is all the prelim stuff, which we can use to 
-//   // compose the next fetch call
-//   const resp2 = await fetch("url-2");
-//   const data2 = await resp2.json()
 
-//   // data2 is the final data we need to populate the page
-// }
+
+
+
+
+
