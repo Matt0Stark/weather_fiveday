@@ -1,21 +1,36 @@
 body{
     background-color: grey;
+    /* min-height: 100vh; */
 }
 
 header{
-    background-color: aqua;
+    background-color: rgb(76, 197, 197);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+main {
+    max-width: 1280px;
+    margin: 36px auto !important;
+}
+
+#searchBtn{
+    display: block;
+    min-width: 100%;
+}
+
 
 #searchContain{
-    position: absolute; 
-    left: 10px;
+    /* position: absolute; 
+    left: 10px; */
 
 }
 
-#fiveDayForcast{
-    background-color: blueviolet;
+.w-card{
+    background-color: black;
+    color:aliceblue;
+    padding: 16px !important;
+    margin:0 8px !important;
+    border-radius: 8px !important;
 }

@@ -31,6 +31,8 @@ function findCity(city){
           var daysData = weatherData.list
           console.log(daysData)
 
+          fiveDayForcast.empty();
+
           for (i = 5; i < 40; i+=8){
             var dayFeel = daysData[i].main.feels_like;
             console.log(dayFeel);
@@ -38,10 +40,14 @@ function findCity(city){
             console.log(dayTemp);
             var dayWeather = daysData[i].weather[0].description
             console.log(dayWeather)
+            var weathericon = daysData[i].weather[0].icon
+
+            var weatherIconURL = "https://openweathermap.org/img/wn/10d@2x.png"
             
             const today = $(`
-              <div class="col">
-                  <p>${dayTemp}</p>
+              <div class="col w-card">
+                  <img src="https://openweathermap.org/img/wn/${weathericon}@2x.png" alt="${dayWeather}" />
+                  <p>Temp: ${dayTemp}F</p>
                   <p>${dayFeel}</p>
                   <p>${dayWeather}</p>
               </div>
