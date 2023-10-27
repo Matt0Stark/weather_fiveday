@@ -42,21 +42,18 @@ function findCity(city){
             console.log(dayWeather)
             var weathericon = daysData[i].weather[0].icon
 
-            var weatherIconURL = "https://openweathermap.org/img/wn/10d@2x.png"
+            // var weatherIconURL = "https://openweathermap.org/img/wn/10d@2x.png"
             
             const today = $(`
               <div class="col w-card">
                   <img src="https://openweathermap.org/img/wn/${weathericon}@2x.png" alt="${dayWeather}" />
                   <p>Temp: ${dayTemp}F</p>
-                  <p>${dayFeel}</p>
+                  <p>Feels:${dayFeel}</p>
                   <p>${dayWeather}</p>
               </div>
             `)
 
             fiveDayForcast.append(today);
-
-
-
           }        
         })
     })
