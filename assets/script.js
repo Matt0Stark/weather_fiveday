@@ -45,7 +45,7 @@ function findCity(city){
             // var weatherIconURL = "https://openweathermap.org/img/wn/10d@2x.png"
             
             const today = $(`
-              <div class="col w-card">
+              <div class="col w-card" id="${i}">
                   <img src="https://openweathermap.org/img/wn/${weathericon}@2x.png" alt="${dayWeather}" />
                   <p>Temp: ${dayTemp}F</p>
                   <p>Feels:${dayFeel}</p>

@@ -1,13 +1,24 @@
-body{
-    background-color: grey;
+body {
+    background-color: #05386B;
     /* min-height: 100vh; */
+    color: #EDF5E1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
-header{
-    background-color: rgb(76, 197, 197);
+header {
+    background-color: #6CDB95;
+    color: #379683;
+    border: 4px solid #EDF5E1;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin: 5%;
+}
+
+#fiveDayForcast {
+    margin-bottom: 10%;
 }
 
 main {
@@ -15,22 +26,18 @@ main {
     margin: 36px auto !important;
 }
 
-#searchBtn{
+#searchBtn {
     display: block;
     min-width: 100%;
-}
-
-
-#searchContain{
-    /* position: absolute; 
-    left: 10px; */
 
 }
 
-.w-card{
-    background-color: black;
-    color:aliceblue;
+.w-card {
+    background-color: #6CDB95;
+    color: #05386B;
+    font-size: 20;
+
     padding: 16px !important;
-    margin:0 8px !important;
+    margin: 0 8px !important;
     border-radius: 8px !important;
 }
